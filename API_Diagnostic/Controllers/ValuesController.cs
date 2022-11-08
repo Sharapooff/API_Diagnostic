@@ -12,9 +12,11 @@ namespace API_Diagnostic.Controllers
     {
         // GET api/values
         [Authorize]
+        //[OverrideAuthorization]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
+            //new JsonResult(Ваш объект)
         }
 
         // GET api/values/5
