@@ -1,0 +1,17 @@
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.resources.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.resources.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\ru\Microsoft.VisualStudio.TestPlatform.TestFramework.resources.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\UnitTests.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\UnitTests.pdb
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.xml
+D:\GIT\API_Diagnostic\UnitTests\bin\Debug\Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.xml
+D:\GIT\API_Diagnostic\UnitTests\obj\Debug\UnitTests.csprojAssemblyReference.cache
+D:\GIT\API_Diagnostic\UnitTests\obj\Debug\UnitTests.csproj.CoreCompileInputs.cache
+D:\GIT\API_Diagnostic\UnitTests\obj\Debug\UnitTests.csproj.CopyComplete
+D:\GIT\API_Diagnostic\UnitTests\obj\Debug\UnitTests.dll
+D:\GIT\API_Diagnostic\UnitTests\obj\Debug\UnitTests.pdb

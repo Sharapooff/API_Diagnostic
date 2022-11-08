@@ -12,3 +12,4 @@ D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\System.Net.Http.Formatting.xml
 D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csproj.CopyComplete
 D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.exe
 D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.pdb
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csprojAssemblyReference.cache
