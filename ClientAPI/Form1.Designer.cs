@@ -48,6 +48,7 @@
             this.registration.TabIndex = 0;
             this.registration.Text = "Registration";
             this.registration.UseVisualStyleBackColor = true;
+            this.registration.Click += new System.EventHandler(this.registration_Click);
             // 
             // login
             // 
