@@ -207,15 +207,22 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ValuesController.cs" />
-    <Compile Include="Database\ApplicationContext.cs" />
+    <Compile Include="Controllers\ResultDiagnosticController.cs" />
+    <Compile Include="Database\DiagServiceContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\Database\Algoritm.cs" />
+    <Compile Include="Models\Database\Incident.cs" />
+    <Compile Include="Models\Database\Section.cs" />
+    <Compile Include="Models\Database\TimeTable.cs" />
+    <Compile Include="Models\Database\TypeAlgorithm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ResultModels\ResultDiagnostic.cs" />
+    <Compile Include="Models\ResultModels\ResultObjectForAllAlgoritms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Repositories\Implementation\BaseRepository.cs" />

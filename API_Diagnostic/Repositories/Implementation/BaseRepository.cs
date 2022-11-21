@@ -10,8 +10,8 @@ namespace API_Diagnostic.Repositories.Implementation
 {
     public class BaseRepository<TDbModel> : IBaseRepository<TDbModel> where TDbModel : BaseModel
     {
-        private ApplicationContext Context { get; set; }
-        public BaseRepository(ApplicationContext context)
+        private DiagServiceContext Context { get; set; }
+        public BaseRepository(DiagServiceContext context)
         {
             Context = context;
         }
@@ -42,7 +42,7 @@ namespace API_Diagnostic.Repositories.Implementation
             {
                 toUpdate = model;
             }
-            Context.Update(toUpdate);
+            //Context.Update(toUpdate);
             Context.SaveChanges();
             return toUpdate;
         }
