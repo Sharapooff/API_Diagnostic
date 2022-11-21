@@ -10,7 +10,7 @@ namespace API_Diagnostic.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Diagnostic REST API";
 
             return View();
         }
