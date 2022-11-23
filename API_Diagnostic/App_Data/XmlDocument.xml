@@ -485,12 +485,18 @@
             <summary>
             Метод возвращает результат диагностики секции локомотива, по определенному алгоритму.
             </summary>
-            <param name="section">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
-            <param name="id">Id алгоритма диагностирования</param>
-            <param name="compressed">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
-            <returns>Json object</returns>
+            <param name="sectionNotation">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
+            <param name="algoritmId">Id алгоритма диагностирования. Если = 0, то возвращает по всем.</param>
+            <param name="compressedData">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
+            <returns>Сложный Object в формате Json </returns>
+            <simple>Сложный Object в формате Json </simple>
         </member>
-        <!-- Badly formed XML comment ignored for member "M:API_Diagnostic.Controllers.SectionsController.GetSections" -->
+        <member name="M:API_Diagnostic.Controllers.SectionsController.GetSections">
+            <summary>
+            Метод позволяет получить список секций, id и полное наименование.
+            </summary>
+            <returns>Словарь в формате json в случае удачного запроса, BadRequest(ex.Message) в случае наличия ошибки</returns>
+        </member>
         <member name="M:API_Diagnostic.Controllers.SectionsController.GetSection(System.Int32)">
             <summary>
             Метод возврващает полное наименование секции по ее id.

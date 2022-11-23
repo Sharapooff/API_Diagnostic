@@ -21,9 +21,9 @@ namespace API_Diagnostic.Controllers
 
         // GET: api/Sections
         /// <summary>
-        /// Метод возвращает словарь, в виде ключ-значение, где ключ - id секции, а значение - ее полное наименование, для всех секций в таблице Sections.
+        /// Метод позволяет получить список секций, id и полное наименование.
         /// </summary>
-        /// <returns>Dictionary<int, string> в формате json в случае удачного запроса и BadRequest(ex.Message) в случае наличия ошибки.</returns>
+        /// <returns>Словарь в формате json в случае удачного запроса, BadRequest(ex.Message) в случае наличия ошибки</returns>
         public IHttpActionResult GetSections()
         {
             Dictionary<int, string> result = new Dictionary<int, string>();
