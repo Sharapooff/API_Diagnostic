@@ -1,6 +1,7 @@
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\API_Diagnostic.dll.config
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\API_Diagnostic.dll
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\API_Diagnostic.pdb
+D:\GIT\API_Diagnostic\API_Diagnostic\bin\XmlDocument.xml
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\roslyn\csc.exe
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\roslyn\csc.exe.config
 D:\GIT\API_Diagnostic\API_Diagnostic\bin\roslyn\csc.rsp
@@ -136,4 +137,3 @@ D:\GIT\API_Diagnostic\API_Diagnostic\obj\Debug\API_Diagnostic.csproj.CoreCompile
 D:\GIT\API_Diagnostic\API_Diagnostic\obj\Debug\API_Diagnostic.csproj.CopyComplete
 D:\GIT\API_Diagnostic\API_Diagnostic\obj\Debug\API_Diagnostic.dll
 D:\GIT\API_Diagnostic\API_Diagnostic\obj\Debug\API_Diagnostic.pdb
-D:\GIT\API_Diagnostic\API_Diagnostic\obj\Debug\API_Diagnostic.csprojAssemblyReference.cache
