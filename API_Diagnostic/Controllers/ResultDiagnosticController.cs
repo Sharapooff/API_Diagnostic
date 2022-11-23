@@ -35,7 +35,6 @@ namespace API_Diagnostic.Controllers
         /// <param name="section">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
         /// <param name="id">Id алгоритма диагностирования</param>
         /// <param name="compressed">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
-        /// <param name="AllAlgorims">Парамерт, указывающий, что необходимо вернуть признак наличия инциндента для всех алгоритмов диагностирования</param>
         /// <returns>Json object</returns>
 
         [HttpGet]
@@ -45,6 +44,7 @@ namespace API_Diagnostic.Controllers
             {
                 using (DiagServiceContext db = new DiagServiceContext())
                 {
+                    var a = db.Algoritms.ToList();
                     if (algoritmId != 0)
                     {
                         var incident = db.Incidents.Where(i => i.Section.Notation == sectionNotation).ToList().Where(i => i.AlgoritmId == algoritmId).OrderByDescending(i => i.DiagDT).FirstOrDefault();
