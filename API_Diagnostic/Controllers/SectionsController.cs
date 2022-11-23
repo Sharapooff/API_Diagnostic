@@ -11,6 +11,8 @@ using System.Web.Http.Description;
 using API_Diagnostic.Database;
 using Models.DataBase;
 
+//https://learn.microsoft.com/ru-ru/aspnet/web-api/overview/getting-started-with-aspnet-web-api/creating-api-help-pages
+
 namespace API_Diagnostic.Controllers
 {
     public class SectionsController : ApiController
@@ -78,8 +80,10 @@ namespace API_Diagnostic.Controllers
             return Ok(section.Id);
         }
 
+
         // PUT: api/Sections/5
         [ResponseType(typeof(void))]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IHttpActionResult PutSection(int id, Section section)
         {
             if (!ModelState.IsValid)
@@ -115,6 +119,7 @@ namespace API_Diagnostic.Controllers
 
         // POST: api/Sections
         [ResponseType(typeof(Section))]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IHttpActionResult PostSection(Section section)
         {
             if (!ModelState.IsValid)
@@ -130,6 +135,7 @@ namespace API_Diagnostic.Controllers
 
         // DELETE: api/Sections/5
         [ResponseType(typeof(Section))]
+        [ApiExplorerSettings(IgnoreApi = true)]
         public IHttpActionResult DeleteSection(int id)
         {
             Section section = db.Sections.Find(id);
