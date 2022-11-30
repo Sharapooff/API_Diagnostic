@@ -1,0 +1,15 @@
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\ClientAPI.exe.config
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\ClientAPI.exe
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\ClientAPI.pdb
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\Newtonsoft.Json.dll
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\System.Net.Http.Formatting.dll
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\Newtonsoft.Json.xml
+D:\GIT\API_Diagnostic\ClientAPI\bin\Debug\System.Net.Http.Formatting.xml
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csprojAssemblyReference.cache
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.Form1.resources
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.Properties.Resources.resources
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csproj.GenerateResource.cache
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csproj.CoreCompileInputs.cache
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.csproj.CopyComplete
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.exe
+D:\GIT\API_Diagnostic\ClientAPI\obj\Debug\ClientAPI.pdb
