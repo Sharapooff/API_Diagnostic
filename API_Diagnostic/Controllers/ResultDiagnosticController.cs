@@ -32,11 +32,11 @@ namespace API_Diagnostic.Controllers
         /// <summary>
         /// Метод возвращает результат диагностики секции локомотива, по определенному алгоритму.
         /// </summary>
-        /// <param name="section">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
-        /// <param name="id">Id алгоритма диагностирования</param>
-        /// <param name="compressed">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
-        /// <returns>Json object</returns>
-
+        /// <param name="sectionNotation">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
+        /// <param name="algoritmId">Id алгоритма диагностирования. Если = 0, то возвращает по всем.</param>
+        /// <param name="compressedData">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
+        /// <returns>Сложный Object в формате Json </returns>
+        /// <simple>Сложный Object в формате Json </simple>
         [HttpGet]
         public IHttpActionResult GetRezultDiagnostic(string sectionNotation, int algoritmId = 0, bool compressedData = false)
         {
@@ -56,7 +56,6 @@ namespace API_Diagnostic.Controllers
                     else
                     {
                         var incidents = db.Incidents.Where(i => i.DiagDT == db.Incidents.Where(i_ => i_.Section.Notation == sectionNotation)
-                                                                                // .Where(i3 => i3.PresenceFlag == true)
                                                                                  .Max(i_ => i_.DiagDT)).Where(i_ => i_.PresenceFlag == true)
                                                                                  .ToList();
                         if (incidents != null)
