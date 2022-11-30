@@ -62,100 +62,100 @@ namespace API_Diagnostic.Controllers
             return Ok(algoritm.Name);
         }
 
-        // PUT: api/Algoritms/5
+        //// PUT: api/Algoritms/5
 
-        /// <summary>
-        /// Изменить алгоритм
-        /// </summary>
-        /// <param name="id">id алгоритма</param>
-        /// <param name="algoritm">Измененный объект алгоритма</param>
-        /// <returns>void</returns>
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutAlgoritm(int id, Algoritm algoritm)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        ///// <summary>
+        ///// Изменение алгоритма
+        ///// </summary>
+        ///// <param name="id">id алгоритма</param>
+        ///// <param name="algoritm">Измененный объект алгоритма</param>
+        ///// <returns>void</returns>
+        //[ResponseType(typeof(void))]
+        //public IHttpActionResult PutAlgoritm(int id, Algoritm algoritm)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != algoritm.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != algoritm.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(algoritm).State = EntityState.Modified;
+        //    db.Entry(algoritm).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!AlgoritmExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!AlgoritmExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Algoritms
-        /// <summary>
-        /// Добавление нового алгоритма
-        /// </summary>
-        /// <param name="algoritm">Добовлемый объект алгоритма</param>
-        /// <returns>CreatedAtRoute("DefaultApi", new { id = algoritm.Id }, algoritm)</returns>
-        [ResponseType(typeof(Algoritm))]        
-        public IHttpActionResult PostAlgoritm(Algoritm algoritm)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            db.Algoritms.Add(algoritm);
-            db.SaveChanges();
+        //// POST: api/Algoritms
+        ///// <summary>
+        ///// Добавление нового алгоритма
+        ///// </summary>
+        ///// <param name="algoritm">Добовлемый объект алгоритма</param>
+        ///// <returns>CreatedAtRoute("DefaultApi", new { id = algoritm.Id }, algoritm)</returns>
+        //[ResponseType(typeof(Algoritm))]        
+        //public IHttpActionResult PostAlgoritm(Algoritm algoritm)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+        //    db.Algoritms.Add(algoritm);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = algoritm.Id }, algoritm);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = algoritm.Id }, algoritm);
+        //}
 
-        // DELETE: api/Algoritms/5
-        /// <summary>
-        /// Удаление алгоритма
-        /// </summary>
-        /// <param name="id">id флгоритма</param>
-        /// <returns>Ok(algoritm)</returns>
-        [ResponseType(typeof(Algoritm))]
-        public IHttpActionResult DeleteAlgoritm(int id)
-        {
-            Algoritm algoritm = db.Algoritms.Find(id);
-            if (algoritm == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Algoritms/5
+        ///// <summary>
+        ///// Удаление алгоритма
+        ///// </summary>
+        ///// <param name="id">id флгоритма</param>
+        ///// <returns>Ok(algoritm)</returns>
+        //[ResponseType(typeof(Algoritm))]
+        //public IHttpActionResult DeleteAlgoritm(int id)
+        //{
+        //    Algoritm algoritm = db.Algoritms.Find(id);
+        //    if (algoritm == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Algoritms.Remove(algoritm);
-            db.SaveChanges();
+        //    db.Algoritms.Remove(algoritm);
+        //    db.SaveChanges();
 
-            return Ok(algoritm);
-        }
+        //    return Ok(algoritm);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool AlgoritmExists(int id)
-        {
-            return db.Algoritms.Count(e => e.Id == id) > 0;
-        }
+        //private bool AlgoritmExists(int id)
+        //{
+        //    return db.Algoritms.Count(e => e.Id == id) > 0;
+        //}
     }
 }
