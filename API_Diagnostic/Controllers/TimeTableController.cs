@@ -42,6 +42,11 @@ namespace API_Diagnostic.Controllers
             }
         }
 
+        /// <summary>
+        /// Метод, по id записи в таблице расписания, возвращает полное название секции окомотива и название алгоритма.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         // GET: api/TimeTable/5
         public async Task<IHttpActionResult> Get(int id)
         {
