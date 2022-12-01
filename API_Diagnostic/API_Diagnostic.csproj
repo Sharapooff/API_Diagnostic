@@ -211,6 +211,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ResultDiagnosticController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
+    <Compile Include="Controllers\TimeTableController.cs" />
     <Compile Include="Controllers\TypeAlgorithmsController.cs" />
     <Compile Include="Database\DiagServiceContext.cs" />
     <Compile Include="Global.asax.cs">

@@ -25,7 +25,6 @@ namespace API_Diagnostic.Controllers
         /// <returns>Dictionary(id_typeAlgoriths, name_typeAlgoriths)</returns>
         public IHttpActionResult GetTypeAlgorithms()
         {
-            //db.TypeAlgorithms;
             Dictionary<int, string> typeAlgoriths = new Dictionary<int, string>();
             try
             {
