@@ -53,7 +53,7 @@ namespace ClientAPI.Classes
         {
             using (var client = CreateClient(token))
             {
-                var response = client.GetAsync(APP_PATH + "/api/values").Result;
+                var response = client.GetAsync(APP_PATH + "/api/Sections").Result;
                 return response.Content.ReadAsStringAsync().Result;
             }
         }

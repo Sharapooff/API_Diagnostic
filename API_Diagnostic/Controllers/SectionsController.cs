@@ -81,87 +81,87 @@ namespace API_Diagnostic.Controllers
         }
 
 
-        // PUT: api/Sections/5
-        [ResponseType(typeof(void))]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public IHttpActionResult PutSection(int id, Section section)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// PUT: api/Sections/5
+        //[ResponseType(typeof(void))]
+        //[ApiExplorerSettings(IgnoreApi = true)]
+        //public IHttpActionResult PutSection(int id, Section section)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            if (id != section.Id)
-            {
-                return BadRequest();
-            }
+        //    if (id != section.Id)
+        //    {
+        //        return BadRequest();
+        //    }
 
-            db.Entry(section).State = EntityState.Modified;
+        //    db.Entry(section).State = EntityState.Modified;
 
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!SectionExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+        //    try
+        //    {
+        //        db.SaveChanges();
+        //    }
+        //    catch (DbUpdateConcurrencyException)
+        //    {
+        //        if (!SectionExists(id))
+        //        {
+        //            return NotFound();
+        //        }
+        //        else
+        //        {
+        //            throw;
+        //        }
+        //    }
 
-            return StatusCode(HttpStatusCode.NoContent);
-        }
+        //    return StatusCode(HttpStatusCode.NoContent);
+        //}
 
-        // POST: api/Sections
-        [ResponseType(typeof(Section))]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public IHttpActionResult PostSection(Section section)
-        {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
+        //// POST: api/Sections
+        //[ResponseType(typeof(Section))]
+        //[ApiExplorerSettings(IgnoreApi = true)]
+        //public IHttpActionResult PostSection(Section section)
+        //{
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
 
-            db.Sections.Add(section);
-            db.SaveChanges();
+        //    db.Sections.Add(section);
+        //    db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = section.Id }, section);
-        }
+        //    return CreatedAtRoute("DefaultApi", new { id = section.Id }, section);
+        //}
 
-        // DELETE: api/Sections/5
-        [ResponseType(typeof(Section))]
-        [ApiExplorerSettings(IgnoreApi = true)]
-        public IHttpActionResult DeleteSection(int id)
-        {
-            Section section = db.Sections.Find(id);
-            if (section == null)
-            {
-                return NotFound();
-            }
+        //// DELETE: api/Sections/5
+        //[ResponseType(typeof(Section))]
+        //[ApiExplorerSettings(IgnoreApi = true)]
+        //public IHttpActionResult DeleteSection(int id)
+        //{
+        //    Section section = db.Sections.Find(id);
+        //    if (section == null)
+        //    {
+        //        return NotFound();
+        //    }
 
-            db.Sections.Remove(section);
-            db.SaveChanges();
+        //    db.Sections.Remove(section);
+        //    db.SaveChanges();
 
-            return Ok(section);
-        }
+        //    return Ok(section);
+        //}
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
+        //protected override void Dispose(bool disposing)
+        //{
+        //    if (disposing)
+        //    {
+        //        db.Dispose();
+        //    }
+        //    base.Dispose(disposing);
+        //}
 
-        private bool SectionExists(int id)
-        {
-            return db.Sections.Count(e => e.Id == id) > 0;
-        }
+        //private bool SectionExists(int id)
+        //{
+        //    return db.Sections.Count(e => e.Id == id) > 0;
+        //}
     }
 }

@@ -494,28 +494,6 @@
             <param name="id">id алгоритма диагностировангия</param>
             <returns>Название алгоритма</returns>
         </member>
-        <member name="M:API_Diagnostic.Controllers.AlgoritmsController.PutAlgoritm(System.Int32,Models.DataBase.Algoritm)">
-            <summary>
-            Изменить алгоритм
-            </summary>
-            <param name="id">id алгоритма</param>
-            <param name="algoritm">Измененный объект алгоритма</param>
-            <returns>void</returns>
-        </member>
-        <member name="M:API_Diagnostic.Controllers.AlgoritmsController.PostAlgoritm(Models.DataBase.Algoritm)">
-            <summary>
-            Добавление нового алгоритма
-            </summary>
-            <param name="algoritm">Добовлемый объект алгоритма</param>
-            <returns>CreatedAtRoute("DefaultApi", new { id = algoritm.Id }, algoritm)</returns>
-        </member>
-        <member name="M:API_Diagnostic.Controllers.AlgoritmsController.DeleteAlgoritm(System.Int32)">
-            <summary>
-            Удаление алгоритма
-            </summary>
-            <param name="id">id флгоритма</param>
-            <returns>Ok(algoritm)</returns>
-        </member>
         <member name="M:API_Diagnostic.Controllers.ResultDiagnosticController.GetRezultDiagnostic(System.String,System.Int32,System.Boolean)">
             <summary>
             Метод возвращает результат диагностики секции локомотива, по определенному алгоритму.
@@ -545,6 +523,19 @@
             </summary>
             <param name="notation">Полное наименование секции (2ТЭ25КМ-446А).</param>
             <returns></returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.TypeAlgorithmsController.GetTypeAlgorithms">
+            <summary>
+            Список типов алгоритмов
+            </summary>
+            <returns>Dictionary(id_typeAlgoriths, name_typeAlgoriths)</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.TypeAlgorithmsController.GetTypeAlgorithm(System.Int32)">
+            <summary>
+            Название TypeAlgorithm по его id
+            </summary>
+            <param name="id">id TypeAlgorithm</param>
+            <returns>Ok(typeAlgorithm.Name)</returns>
         </member>
     </members>
 </doc>
