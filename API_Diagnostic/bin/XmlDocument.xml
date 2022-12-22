@@ -524,6 +524,13 @@
             <param name="notation">Полное наименование секции (2ТЭ25КМ-446А).</param>
             <returns></returns>
         </member>
+        <member name="M:API_Diagnostic.Controllers.TimeTableController.Get(System.Int32)">
+            <summary>
+            Метод, по id записи в таблице расписания, возвращает полное название секции окомотива и название алгоритма.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:API_Diagnostic.Controllers.TypeAlgorithmsController.GetTypeAlgorithms">
             <summary>
             Список типов алгоритмов
@@ -536,6 +543,11 @@
             </summary>
             <param name="id">id TypeAlgorithm</param>
             <returns>Ok(typeAlgorithm.Name)</returns>
+        </member>
+        <member name="T:API_Diagnostic.Models.ResultModels.SectionFuelNowInfo">
+            <summary>
+            Класс результата хранимой процедуры, возращающий максимальную дату и количество топлива
+            </summary>
         </member>
     </members>
 </doc>

@@ -2,8 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Web;
+using API_Diagnostic.Models.ResultModels;
+using System.Threading.Tasks;
 
 namespace API_Diagnostic.Database
 {
@@ -27,7 +30,46 @@ namespace API_Diagnostic.Database
         {
             
         }
-        
+
+        /// <summary>
+        /// Метод вызова хранимой процедуры SectionFuelNow(DS)
+        /// </summary>
+        /// <param name="id_section">id секции (diag_lcm)</param>
+        /// <returns>Запись типа SectionFuelNowInfo</returns>
+        public DbRawSqlQuery<SectionFuelNowInfo> GetSectionFuelNow(int id_section)
+        {
+            var sql = @"[App].[SectionFuelNow(DS)] {0}";
+            return Database.SqlQuery<SectionFuelNowInfo>(sql, id_section);
+        }
+        /// <summary>
+        /// Асинхронная версия метода вызова хранимой процедуры SectionFuelNow(DS)
+        /// </summary>
+        /// <param name="id_section">id секции (diag_lcm)</param>
+        /// <returns>Запись типа SectionFuelNowInfo</returns>
+        public async Task<DbRawSqlQuery<SectionFuelNowInfo>> GetSectionFuelNowAsync(int id_section)
+        {
+            return (await Task.Run(() => GetSectionFuelNow(id_section)));
+        }
+
+        /// <summary>
+        /// Метод вызова хранимой процедуры SectionGetMaxDateTime(DS)
+        /// </summary>
+        /// <param name="id_section">id секции (diag_lcm)</param>
+        /// <returns></returns>
+        public DbRawSqlQuery<SectionMaxDateTime> GetSectionMaxDateTime(int id_section)
+        {
+            var sql = @"[App].[SectionGetMaxDateTime(DS)] {0}";
+            return Database.SqlQuery<SectionMaxDateTime>(sql, id_section);
+        }
+        /// <summary>
+        /// Асинхронная версия метода вызова хранимой процедуры SectionGetMaxDateTime(DS)
+        /// </summary>
+        /// <param name="id_section"></param>
+        /// <returns></returns>
+        public async Task<DbRawSqlQuery<SectionMaxDateTime>> GetSectionMaxDateTimeAsync(int id_section)
+        {
+            return (await Task.Run(() => GetSectionMaxDateTime(id_section)));
+        }
 
     }
 }
