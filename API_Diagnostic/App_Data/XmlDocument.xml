@@ -494,6 +494,40 @@
             <param name="id">id алгоритма диагностировангия</param>
             <returns>Название алгоритма</returns>
         </member>
+        <member name="M:API_Diagnostic.Controllers.CoordinatesController.CoordinatesNow(System.Int32)">
+            <summary>
+            Местоположение (координаты) секции по ее Id
+            </summary>
+            <param name="id">Id секции</param>
+            <returns>Дата и координаты местопложения, соответствующие последней зафиксированной в БД</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.CoordinatesController.CoordinatesNow(System.String)">
+            <summary>
+            Местоположение (координаты) секции по ее полному названию
+            </summary>
+            <param name="notation">Полное наименование секции</param>
+            <returns>Дата и координаты местопложения, соответствующие последней зафиксированной в БД</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.FuelController.FuelSection(System.Int32)">
+            <summary>
+            Уровень топлива секции на текущий момент, по ее id 
+            </summary>
+            <param name="id">id секции</param>
+            <returns>Масса топлива в кг.</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.FuelController.FuelSection(System.String)">
+            <summary>
+            Уровень топлива секции на текущий момент, по ее полному названию
+            </summary>
+            <param name="notation">полное название секции</param>
+            <returns>Масса топлива в кг.</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.FuelController.FuelSections">
+            <summary>
+            Список всех секций с массой топлива в кг.
+            </summary>
+            <returns>Список всех секций с массой топлива в кг.</returns>
+        </member>
         <member name="M:API_Diagnostic.Controllers.ResultDiagnosticController.GetRezultDiagnostic(System.String,System.Int32,System.Boolean)">
             <summary>
             Метод возвращает результат диагностики секции локомотива, по определенному алгоритму.
@@ -504,24 +538,31 @@
             <returns>Сложный Object в формате Json </returns>
             <simple>Сложный Object в формате Json </simple>
         </member>
-        <member name="M:API_Diagnostic.Controllers.SectionsController.GetSections">
+        <member name="M:API_Diagnostic.Controllers.SectionController.GetSections">
             <summary>
-            Метод позволяет получить список секций, id и полное наименование.
+            Cписок секций, id и полное наименование.
             </summary>
             <returns>Словарь в формате json в случае удачного запроса, BadRequest(ex.Message) в случае наличия ошибки</returns>
         </member>
-        <member name="M:API_Diagnostic.Controllers.SectionsController.GetSection(System.Int32)">
+        <member name="M:API_Diagnostic.Controllers.SectionController.GetSection(System.Int32)">
             <summary>
-            Метод возврващает полное наименование секции по ее id.
+            Полное наименование секции по ее id.
             </summary>
             <param name="id">id сенкции</param>
             <returns>Полное наиенование секции (2ТЭ25КМ-446А).</returns>
         </member>
-        <member name="M:API_Diagnostic.Controllers.SectionsController.GetSection(System.String)">
+        <member name="M:API_Diagnostic.Controllers.SectionController.GetSection(System.String)">
             <summary>
-            Метод возвращает id секции по ее полному наименованию.
+            Id секции по ее полному наименованию.
             </summary>
             <param name="notation">Полное наименование секции (2ТЭ25КМ-446А).</param>
+            <returns></returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.TimeTableController.Get(System.Int32)">
+            <summary>
+            Метод, по id записи в таблице расписания, возвращает полное название секции окомотива и название алгоритма.
+            </summary>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="M:API_Diagnostic.Controllers.TypeAlgorithmsController.GetTypeAlgorithms">
@@ -536,6 +577,39 @@
             </summary>
             <param name="id">id TypeAlgorithm</param>
             <returns>Ok(typeAlgorithm.Name)</returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionFuelNow(System.Int32)">
+            <summary>
+            Метод вызова хранимой процедуры SectionFuelNow(DS)
+            </summary>
+            <param name="id_section">id секции (diag_lcm)</param>
+            <returns>Запись типа SectionFuelNowInfo</returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionFuelNowAsync(System.Int32)">
+            <summary>
+            Асинхронная версия метода вызова хранимой процедуры SectionFuelNow(DS)
+            </summary>
+            <param name="id_section">id секции (diag_lcm)</param>
+            <returns>Запись типа SectionFuelNowInfo</returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionMaxDateTime(System.Int32)">
+            <summary>
+            Метод вызова хранимой процедуры SectionGetMaxDateTime(DS)
+            </summary>
+            <param name="id_section">id секции (diag_lcm)</param>
+            <returns></returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionMaxDateTimeAsync(System.Int32)">
+            <summary>
+            Асинхронная версия метода вызова хранимой процедуры SectionGetMaxDateTime(DS)
+            </summary>
+            <param name="id_section"></param>
+            <returns></returns>
+        </member>
+        <member name="T:API_Diagnostic.Models.ResultModels.SectionFuelNowInfo">
+            <summary>
+            Класс результата хранимой процедуры, возращающий максимальную дату и количество топлива
+            </summary>
         </member>
     </members>
 </doc>

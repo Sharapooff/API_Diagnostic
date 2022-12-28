@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using API_Diagnostic.Database;
@@ -15,15 +16,17 @@ using Models.DataBase;
 
 namespace API_Diagnostic.Controllers
 {
-    public class SectionsController : ApiController
+    public class SectionController : ApiController
     {
         private DiagServiceContext db = new DiagServiceContext();
 
         // GET: api/Sections
         /// <summary>
-        /// Метод позволяет получить список секций, id и полное наименование.
+        /// Cписок секций, id и полное наименование.
         /// </summary>
         /// <returns>Словарь в формате json в случае удачного запроса, BadRequest(ex.Message) в случае наличия ошибки</returns>
+        [HttpGet]
+        [Route("api/Sections")]
         public IHttpActionResult GetSections()
         {
             Dictionary<int, string> result = new Dictionary<int, string>();
@@ -50,118 +53,48 @@ namespace API_Diagnostic.Controllers
 
         // GET: api/Sections/5 or api/Sections/?id=5
         /// <summary>
-        /// Метод возврващает полное наименование секции по ее id.
+        /// Полное наименование секции по ее id.
         /// </summary>
         /// <param name="id">id сенкции</param>
         /// <returns>Полное наиенование секции (2ТЭ25КМ-446А).</returns>
-        public IHttpActionResult GetSection(int id)
+        public async Task<IHttpActionResult> GetSection(int id)
         {
-            Section section = db.Sections.Find(id);
-            if (section == null)
+            try
             {
-                return NotFound();
+                Section section = await db?.Sections.FindAsync(id);
+                if (section == null)
+                {
+                    return NotFound();
+                }
+                return Ok(section.Notation);
             }
-            return Ok(section.Notation);
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
-        // GET: api/Sections/2ТЭ25КМ-443А
+        // GET: api/Section/2ТЭ25КМ-443А
         /// <summary>
-        /// Метод возвращает id секции по ее полному наименованию.
+        /// Id секции по ее полному наименованию.
         /// </summary>
         /// <param name="notation">Полное наименование секции (2ТЭ25КМ-446А).</param>
         /// <returns></returns>
-        public IHttpActionResult GetSection(string notation)
+        public async Task<IHttpActionResult> GetSection(string notation)
         {
-            Section section = db.Sections.Where(s=>s.Notation == notation).First();
-            if (section == null)
+            try
             {
-                return NotFound();
+                Section section = await db.Sections.Where(s => s.Notation == notation).FirstAsync();
+                if (section == null)
+                {
+                    return NotFound();
+                }
+                return Ok(section.Id);
             }
-            return Ok(section.Id);
-        }
-
-
-        //// PUT: api/Sections/5
-        //[ResponseType(typeof(void))]
-        //[ApiExplorerSettings(IgnoreApi = true)]
-        //public IHttpActionResult PutSection(int id, Section section)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    if (id != section.Id)
-        //    {
-        //        return BadRequest();
-        //    }
-
-        //    db.Entry(section).State = EntityState.Modified;
-
-        //    try
-        //    {
-        //        db.SaveChanges();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!SectionExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
-
-        //    return StatusCode(HttpStatusCode.NoContent);
-        //}
-
-        //// POST: api/Sections
-        //[ResponseType(typeof(Section))]
-        //[ApiExplorerSettings(IgnoreApi = true)]
-        //public IHttpActionResult PostSection(Section section)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
-
-        //    db.Sections.Add(section);
-        //    db.SaveChanges();
-
-        //    return CreatedAtRoute("DefaultApi", new { id = section.Id }, section);
-        //}
-
-        //// DELETE: api/Sections/5
-        //[ResponseType(typeof(Section))]
-        //[ApiExplorerSettings(IgnoreApi = true)]
-        //public IHttpActionResult DeleteSection(int id)
-        //{
-        //    Section section = db.Sections.Find(id);
-        //    if (section == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    db.Sections.Remove(section);
-        //    db.SaveChanges();
-
-        //    return Ok(section);
-        //}
-
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        db.Dispose();
-        //    }
-        //    base.Dispose(disposing);
-        //}
-
-        //private bool SectionExists(int id)
-        //{
-        //    return db.Sections.Count(e => e.Id == id) > 0;
-        //}
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }                      
     }
 }
