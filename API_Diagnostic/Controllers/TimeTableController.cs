@@ -17,6 +17,10 @@ namespace API_Diagnostic.Controllers
     {
         private DiagServiceContext db = new DiagServiceContext();
 
+        /// <summary>
+        /// Метод возвращает полное название секции локомотива и название алгоритма по всем записям в таблице расписания.
+        /// </summary>
+        /// <returns>Словарь: полное название секции локомотива - название алгоритма</returns>
         // GET: api/TimeTable
         public IHttpActionResult Get()
         {
@@ -43,10 +47,10 @@ namespace API_Diagnostic.Controllers
         }
 
         /// <summary>
-        /// Метод, по id записи в таблице расписания, возвращает полное название секции окомотива и название алгоритма.
+        /// Метод, по id записи в таблице расписания, возвращает полное название секции локомотива и название алгоритма.
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">id записи в таблице расписания</param>
+        /// <returns>Полное название секции локомотива и название алгоритма</returns>
         // GET: api/TimeTable/5
         public async Task<IHttpActionResult> Get(int id)
         {
@@ -60,19 +64,19 @@ namespace API_Diagnostic.Controllers
 
         }
 
-        // POST: api/TimeTable
-        public void Post(TimeTable timeTables)
-        {
-        }
+        //// POST: api/TimeTable
+        //public void Post(TimeTable timeTables)
+        //{
+        //}
 
-        // PUT: api/TimeTable/5
-        public void Put(int id, TimeTable timeTables)
-        {
-        }
+        //// PUT: api/TimeTable/5
+        //public void Put(int id, TimeTable timeTables)
+        //{
+        //}
 
-        // DELETE: api/TimeTable/5
-        public void Delete(int id)
-        {
-        }
+        //// DELETE: api/TimeTable/5
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

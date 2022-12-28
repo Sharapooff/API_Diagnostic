@@ -481,13 +481,13 @@
             </summary>
             <param name="documentPath">The physical path to XML document.</param>
         </member>
-        <member name="M:API_Diagnostic.Controllers.AlgoritmsController.GetAlgoritms">
+        <member name="M:API_Diagnostic.Controllers.AlgoritmController.GetAlgoritms">
             <summary>
             Метод возвращает словарь - id-Name всех алгоритмов диагностирования
             </summary>
             <returns>Dictionary(id_algorithm name_algorithm)</returns>
         </member>
-        <member name="M:API_Diagnostic.Controllers.AlgoritmsController.GetAlgoritm(System.Int32)">
+        <member name="M:API_Diagnostic.Controllers.AlgoritmController.GetAlgoritm(System.Int32)">
             <summary>
             Метод возвращает Name алгоритма диагностирования по его id
             </summary>
@@ -507,6 +507,20 @@
             </summary>
             <param name="notation">Полное наименование секции</param>
             <returns>Дата и координаты местопложения, соответствующие последней зафиксированной в БД</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.DateTimeController.GetMaxDateTime(System.Int32)">
+            <summary>
+            Дата и время последней регистрации данных о секции локомотива по ее ID
+            </summary>
+            <param name="id">Id  секции</param>
+            <returns>Полное название секции и дату/время поледней регистрации данных</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.DateTimeController.CoordinatesNow(System.String)">
+            <summary>
+            Дата и время последней регистрации данных о секции локомотива по ее полному наименованию
+            </summary>
+            <param name="notation">Полное неименование секции</param>
+            <returns>Полное название секции и дату/время поледней регистрации данных</returns>
         </member>
         <member name="M:API_Diagnostic.Controllers.FuelController.FuelSection(System.Int32)">
             <summary>
@@ -558,12 +572,18 @@
             <param name="notation">Полное наименование секции (2ТЭ25КМ-446А).</param>
             <returns></returns>
         </member>
+        <member name="M:API_Diagnostic.Controllers.TimeTableController.Get">
+            <summary>
+            Метод возвращает полное название секции локомотива и название алгоритма по всем записям в таблице расписания.
+            </summary>
+            <returns>Словарь: полное название секции локомотива - название алгоритма</returns>
+        </member>
         <member name="M:API_Diagnostic.Controllers.TimeTableController.Get(System.Int32)">
             <summary>
-            Метод, по id записи в таблице расписания, возвращает полное название секции окомотива и название алгоритма.
+            Метод, по id записи в таблице расписания, возвращает полное название секции локомотива и название алгоритма.
             </summary>
-            <param name="id"></param>
-            <returns></returns>
+            <param name="id">id записи в таблице расписания</param>
+            <returns>Полное название секции локомотива и название алгоритма</returns>
         </member>
         <member name="M:API_Diagnostic.Controllers.TypeAlgorithmsController.GetTypeAlgorithms">
             <summary>
@@ -602,6 +622,20 @@
         <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionMaxDateTimeAsync(System.Int32)">
             <summary>
             Асинхронная версия метода вызова хранимой процедуры SectionGetMaxDateTime(DS)
+            </summary>
+            <param name="id_section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionСoordinates(System.Int32)">
+            <summary>
+            Метод вызова хранимой процедуры SectionCoordinatesMax(DS)
+            </summary>
+            <param name="id_section"></param>
+            <returns></returns>
+        </member>
+        <member name="M:API_Diagnostic.Database.DiagServiceContext.GetSectionСoordinatesAsync(System.Int32)">
+            <summary>
+            Асинхронная версия метода вызова хранимой процедуры SectionCoordinatesMax(DS)
             </summary>
             <param name="id_section"></param>
             <returns></returns>

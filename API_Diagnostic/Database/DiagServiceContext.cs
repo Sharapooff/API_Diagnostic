@@ -74,13 +74,21 @@ namespace API_Diagnostic.Database
             return (await Task.Run(() => GetSectionMaxDateTime(id_section)));
         }
         //_____________________________________Координаты__________________________
-
+        /// <summary>
+        /// Метод вызова хранимой процедуры SectionCoordinatesMax(DS)
+        /// </summary>
+        /// <param name="id_section"></param>
+        /// <returns></returns>
         public DbRawSqlQuery<Сoordinates> GetSectionСoordinates(int id_section)
         {
             var sql = @"[App].[SectionCoordinatesMax(DS)] {0}";
             return Database.SqlQuery<Сoordinates>(sql, id_section);
         }
-
+        /// <summary>
+        /// Асинхронная версия метода вызова хранимой процедуры SectionCoordinatesMax(DS)
+        /// </summary>
+        /// <param name="id_section"></param>
+        /// <returns></returns>
         public async Task<DbRawSqlQuery<Сoordinates>> GetSectionСoordinatesAsync(int id_section)
         {
             return (await Task.Run(() => GetSectionСoordinates(id_section)));

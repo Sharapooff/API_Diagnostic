@@ -13,15 +13,16 @@ using Models.DataBase;
 
 namespace API_Diagnostic.Controllers
 {
-    public class AlgoritmsController : ApiController
+    public class AlgoritmController : ApiController
     {
         private DiagServiceContext db = new DiagServiceContext();
-
+        
         // GET: api/Algoritms
         /// <summary>
         /// Метод возвращает словарь - id-Name всех алгоритмов диагностирования
         /// </summary>
         /// <returns>Dictionary(id_algorithm name_algorithm)</returns>
+        [HttpGet]
         public IHttpActionResult GetAlgoritms()
         {
             Dictionary<int, string> algoriths = new Dictionary<int, string>();
@@ -52,6 +53,7 @@ namespace API_Diagnostic.Controllers
         /// </summary>
         /// <param name="id">id алгоритма диагностировангия</param>
         /// <returns>Название алгоритма</returns>
+        [HttpGet]
         public IHttpActionResult GetAlgoritm(int id)
         {
             Algoritm algoritm = db.Algoritms.Find(id);
