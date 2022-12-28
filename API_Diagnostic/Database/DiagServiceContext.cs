@@ -31,6 +31,9 @@ namespace API_Diagnostic.Database
             
         }
 
+
+        //_________________________________________________________________ Вызовы хранимых процедур ________________________________________
+        //_____________________________________Топливо__________________________
         /// <summary>
         /// Метод вызова хранимой процедуры SectionFuelNow(DS)
         /// </summary>
@@ -50,7 +53,7 @@ namespace API_Diagnostic.Database
         {
             return (await Task.Run(() => GetSectionFuelNow(id_section)));
         }
-
+        //_____________________________________Дата-Время__________________________
         /// <summary>
         /// Метод вызова хранимой процедуры SectionGetMaxDateTime(DS)
         /// </summary>
@@ -70,6 +73,17 @@ namespace API_Diagnostic.Database
         {
             return (await Task.Run(() => GetSectionMaxDateTime(id_section)));
         }
+        //_____________________________________Координаты__________________________
 
+        public DbRawSqlQuery<Сoordinates> GetSectionСoordinates(int id_section)
+        {
+            var sql = @"[App].[SectionCoordinatesMax(DS)] {0}";
+            return Database.SqlQuery<Сoordinates>(sql, id_section);
+        }
+
+        public async Task<DbRawSqlQuery<Сoordinates>> GetSectionСoordinatesAsync(int id_section)
+        {
+            return (await Task.Run(() => GetSectionСoordinates(id_section)));
+        }
     }
 }

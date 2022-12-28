@@ -15,8 +15,41 @@ namespace API_Diagnostic.Controllers
     {
         private DiagServiceContext db = new DiagServiceContext();
 
-        // GET: api/Fuel        
-        public IHttpActionResult GetFuelSection(string notation)
+        // GET: api/Fuel?id=5       
+        /// <summary>
+        /// Уровень топлива секции на текущий момент, по ее id 
+        /// </summary>
+        /// <param name="id">id секции</param>
+        /// <returns>Масса топлива в кг.</returns>
+        [HttpGet]
+        [Route("api/Section/FuelNow")]
+        public async Task<IHttpActionResult> FuelSection(int id)
+        {
+            Section section = db.Sections.Where(s => s.Id == id).First();
+            if (section == null)
+            {
+                return NotFound();
+            }
+            try
+            {
+                return Ok((await db.GetSectionFuelNowAsync(section.RefID.Value)).First());
+            }
+            catch
+            {
+                return BadRequest();
+            }
+        }
+
+
+        // GET: api/Fuel?notation="2ТЭ25КМ-448А"   
+        /// <summary>
+        /// Уровень топлива секции на текущий момент, по ее полному названию
+        /// </summary>
+        /// <param name="notation">полное название секции</param>
+        /// <returns>Масса топлива в кг.</returns>
+        [HttpGet]
+        [Route("api/Section/FuelNow")]
+        public async Task<IHttpActionResult> FuelSection(string notation)
         {
             Section section = db.Sections.Where(s => s.Notation == notation).First();
             if (section == null)
@@ -25,8 +58,7 @@ namespace API_Diagnostic.Controllers
             }
             try
             {
-                var fuelInfo = db.GetSectionFuelNow(section.RefID.Value).First();
-                return Ok(fuelInfo);
+                return Ok((await db.GetSectionFuelNowAsync(section.RefID.Value)).First());
             }
             catch
             {
@@ -34,9 +66,14 @@ namespace API_Diagnostic.Controllers
             }            
         }
 
-        // GET: api/Fuel/5
-        public async Task<IHttpActionResult> GetFuelSections()
-        
+        // GET: api/Fuel
+        /// <summary>
+        /// Список всех секций с массой топлива в кг.
+        /// </summary>
+        /// <returns>Список всех секций с массой топлива в кг.</returns>
+        [NonAction]
+        [HttpGet]
+        public async Task<IHttpActionResult> FuelSections()        
         {
             List<SectionFuelNowInfo> result = new List<SectionFuelNowInfo>();
             List<string> result2 = new List<string>();
