@@ -542,15 +542,21 @@
             </summary>
             <returns>Список всех секций с массой топлива в кг.</returns>
         </member>
-        <member name="M:API_Diagnostic.Controllers.ResultDiagnosticController.GetRezultDiagnostic(System.String,System.Int32,System.Boolean)">
+        <member name="M:API_Diagnostic.Controllers.ResultDiagnosticController.GetDiagnosticRezult(System.Int32,System.Int32)">
             <summary>
-            Метод возвращает результат диагностики секции локомотива, по определенному алгоритму.
+            Получение результата диагностирования секции по алгоритму диагностирования.
             </summary>
-            <param name="sectionNotation">Секция локомотива, например "2ТЭ25КМ-443А". Обязательный параметр.</param>
-            <param name="algoritmId">Id алгоритма диагностирования. Если = 0, то возвращает по всем.</param>
-            <param name="compressedData">Параметр, указывающий на то, возращать только флаг наличия отклонения по алгоритму или флаг, вместе с результатом.</param>
-            <returns>Сложный Object в формате Json </returns>
-            <simple>Сложный Object в формате Json </simple>
+            <param name="sectionId">Id секции</param>
+            <param name="algoritmId">Id алгоритма диагностирования</param>
+            <returns>Результаты диагностирования в виде объекта в формате json</returns>
+        </member>
+        <member name="M:API_Diagnostic.Controllers.ResultDiagnosticController.GetFlagDiagnosticRezult(System.Int32,System.Int32)">
+            <summary>
+            Получение флага результата диагностирования секции по алгоритму диагностирования.
+            </summary>
+            <param name="sectionId">Id секции</param>
+            <param name="algoritmId">Id алгоритма диагностирования</param>
+            <returns>Результаты диагностирования в виде флага наличия отклонения, по Id алгоритма.</returns>
         </member>
         <member name="M:API_Diagnostic.Controllers.SectionController.GetSections">
             <summary>

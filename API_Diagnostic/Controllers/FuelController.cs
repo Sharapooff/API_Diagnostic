@@ -34,9 +34,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionFuelNowAsync(section.RefID.Value)).First());
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -60,9 +60,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionFuelNowAsync(section.RefID.Value)).First());
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }            
         }
 
@@ -97,7 +97,7 @@ namespace API_Diagnostic.Controllers
                 }
                 catch (Exception ex)
                 {
-                    string message = ex.Message;
+                    return BadRequest(ex.Message);
                 }
             }
             //if (result2.Count > 0)

@@ -34,9 +34,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionMaxDateTimeAsync(section.RefID.Value)).First());
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -58,9 +58,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionMaxDateTimeAsync(section.RefID.Value)).First());
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
     }
