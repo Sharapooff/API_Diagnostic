@@ -35,9 +35,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionСoordinatesAsync(section.RefID.Value)).First());
             }
-            catch
+            catch(Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
 
@@ -60,9 +60,9 @@ namespace API_Diagnostic.Controllers
             {
                 return Ok((await db.GetSectionСoordinatesAsync(section.RefID.Value)).First());
             }
-            catch
+            catch (Exception ex)
             {
-                return BadRequest();
+                return BadRequest(ex.Message);
             }
         }
     }

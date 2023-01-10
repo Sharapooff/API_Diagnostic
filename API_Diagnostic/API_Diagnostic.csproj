@@ -229,6 +229,9 @@
     <Compile Include="Models\Database\TimeTable.cs" />
     <Compile Include="Models\Database\TypeAlgorithm.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ResultModels\AlgorithmResultModels\Diag_result.cs" />
+    <Compile Include="Models\ResultModels\AlgorithmResultModels\Report_Diagnostic_Models.cs" />
+    <Compile Include="Models\ResultModels\AlgorithmResultModels\Tabels_Models.cs" />
     <Compile Include="Models\ResultModels\FuelInfo.cs" />
     <Compile Include="Models\ResultModels\ResultDiagnostic.cs" />
     <Compile Include="Models\ResultModels\ResultObjectForAllAlgoritms.cs" />
